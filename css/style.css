@@ -1,0 +1,900 @@
+/*
+	CSS Document for Sports Agronomy Services 
+	Build: Adam Duncan
+	Date: October 2012
+*/
+
+/*--------------------------------------------------=> Reset */
+/* ------------ General */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, input, select, textarea, legend, table, caption, tbody, tfoot, thead, tr, th, td
+{
+	background: transparent;
+	border: 0;
+	font-size: 1em; /* 16px */
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+/* ------------ Headers */
+h1, h2, h3, h4
+{
+	font-weight: normal;
+}
+/* ------------ Typography */
+small
+{
+	font-size: smaller;
+}
+
+sub
+{
+	font-size: smaller;
+	vertical-align: sub;
+}
+
+sup
+{
+	font-size: small;
+	vertical-align: super;
+}
+/* ------------ Link */
+a
+{
+	text-decoration: none;
+}
+/* ------------ List */
+dl, ol, ul
+{
+	list-style: none;
+}
+/* ------------ Blockquote */
+blockquote, q
+{
+	quotes: none;
+}
+
+	blockquote:before, blockquote:after, q:before, q:after
+	{
+		content: "";
+		content: none;
+	}
+/* ------------ Image, video, and more */
+img, object, embed
+{
+	display: block;
+}
+/* ------------ Table */
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+th
+{
+	font-weight: normal;
+	text-align: left;
+}
+
+td, td img
+{
+	vertical-align: top;
+}
+/* ------------ Form */
+label, select, input, textarea
+{
+	display: block;
+}
+
+textarea
+{
+	resize: vertical;
+}
+/* ------------ Highlight */
+::-moz-selection
+{
+	background: rgba(123, 159, 23, 0.8); /* #7b9f17 */
+	color: #000;
+	text-shadow: none;
+}
+::selection
+{
+	background: rgba(123, 159, 23, 0.8); /* #7b9f17 */
+	color: #000;
+	text-shadow: none;
+}
+
+/*--------------------------------------------------=> Site */
+html
+{
+	height: 100%;
+	background: #EEEEE9 url(/images/bg.gif) -28px 0 repeat;
+}
+
+body
+{
+	color: #A68479;
+	font-family: 'Univers LT W01 45 Light', Arial, Helvetica, sans-serif;
+	height: 100%;
+	line-height: 1.5;
+	min-width: 927px;
+	overflow-x: scroll;
+}
+
+/*--------------------------------------------------=> Base */
+/* ------------ Header */
+h1, .h1
+{
+	color: #3E2B2E;
+	font-size: 1.125em; /* 18px */
+	line-height: 1.167; /* 21px */
+	margin-bottom: 10px;
+}
+
+h2, .h2
+{
+	color: #3E2B2E;
+	font-size: 0.875em; /* 14px */
+	line-height: 1.214; /* 17px */
+}
+
+h3, .h3
+{
+}
+
+h4, .h4
+{
+}
+
+h5, .h5
+{
+}
+
+h6, .h6
+{
+}
+
+/* ------------ Paragraph */
+p
+{
+	font-size: 0.875em; /* 14px */
+	line-height: 1.214; /* 17px */
+	margin-bottom: 15px;
+}
+
+/* ------------ Link */
+a
+{
+	color: #A68479;
+	text-decoration: underline;
+}
+
+	a:hover, a:focus
+	{
+		color: #3E2B2E;
+	}
+
+/* ------------ List */
+ul, ol
+{
+	font-size: 0.875em; /* 14px */
+	line-height: 1.214; /* 17px */
+	margin-bottom: 15px;
+	zoom: 1;
+}
+
+ol
+{
+	list-style: decimal;
+	margin: 0;
+}
+
+ul li
+{
+	background: url(/images/bullet.png) no-repeat 0 6px;
+	margin-bottom: 4px;
+	padding: 0 0 0 13px;
+	zoom: 1;
+}
+
+ol li
+{
+	margin-bottom: 2px;
+	margin-left: 25px;
+}
+
+	ul li ul, ul li ol, ol li ul, ol li ol
+	{
+		font-size: 1em;
+	}
+
+	ul li ul, ol li ol, ul li ol, ol li ul
+	{
+		margin-top: 2px;
+		margin-bottom: 0;
+	}
+
+		ol li ul li
+		{
+			margin-left: 0;
+		}
+
+		ul li ol li
+		{
+			padding: 0;
+			background: none;
+		}
+
+/* ------------ Table */
+table
+{
+	width: 100%;
+	font-size: 0.75em; /* 12px */
+	margin-bottom: 15px;
+}
+
+	table tr td
+	{
+		padding: 7px 10px 6px 0;
+		border-bottom: 1px solid #eeeae1;
+	}
+
+		table tr td.width_1
+		{
+			width: 88px;
+		}
+
+/* ------------ Form */
+form
+{
+	position: relative;
+	zoom: 1;
+}
+
+select, input, textarea
+{
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ------------ Blockquote */
+blockquote
+{
+}
+
+/*--------------------------------------------------=> Grid */
+[class*="grid_"]
+{
+	float: left;
+	position: relative;
+	margin-right: 21px;
+}
+
+.grid_1
+{
+	width: 58px;
+}
+
+.grid_2
+{
+	width: 137px;
+}
+
+.grid_3
+{
+	width: 216px;
+}
+
+.grid_4
+{
+	width: 295px;
+}
+
+.grid_5
+{
+	width: 374px;
+}
+
+.grid_6
+{
+	width: 453px;
+}
+
+.grid_7
+{
+	width: 532px;
+}
+
+.grid_8
+{
+	width: 611px;
+}
+
+.grid_9
+{
+	width: 690px;
+}
+
+.grid_10
+{
+	width: 769px;
+}
+
+.grid_11
+{
+	width: 848px;
+}
+
+.grid_12
+{
+	width: 927px;
+}
+
+/*--------------------------------------------------=> Navigation */
+/* ------------ Primary nav */
+.nav_container
+{
+	margin: -50px 0 34px;
+}
+
+.nav_pri
+{
+	color: #3E2B2E;
+	font-size: 1em;
+	line-height: 1em;
+	overflow: hidden;
+}
+
+	.nav_pri li
+	{
+		background: none;
+		float: left;
+		margin: 0 24px 0 0;
+		padding: 0;
+		position: relative;
+	}
+
+		.nav_pri li:after
+		{
+			content: "/";
+			height: 100%;
+			position: absolute;
+			right: -30px;
+			top: 0;
+			width: 20px;
+		}
+
+		.nav_pri li:last-child:after
+		{
+			content: "";
+		}
+
+		.nav_pri li a
+		{
+			color: #3E2B2E;
+			display: block;
+			text-decoration: none;
+		}
+
+	.nav_pri a:hover, .nav_pri a:focus, .nav_pri .current
+	{
+		color: #A68479;
+	}
+
+/*--------------------------------------------------=> Header */
+/* ------------ Header*/
+.header
+{
+	position: relative;
+	overflow: hidden;
+	margin: 0 0 10px 0;
+}
+
+.logo
+{
+	bottom: 0;
+	height: 126px;
+	position: absolute;
+	right: 20px;
+	width: 369px;
+}
+
+/*--------------------------------------------------=> Main content */
+.container
+{
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto;
+	min-height: 100%;
+}
+
+.main_content
+{
+	overflow: hidden;
+	padding: 30px 21px 210px 51px;
+}
+
+.no-js .main_content
+{
+	width: 9999px;
+}
+
+/* ------------ Section */
+.columns
+{
+	height: 257px;
+}
+.no-js .columns
+{
+	height: auto;
+}
+
+	.columns .column
+	{
+		margin-right: 21px;
+	}
+
+	.columns .last
+	{
+		margin-right: 0;
+	}
+
+/* ------------ Link */
+a
+{
+}
+
+/* ------------ List */
+.list_links
+{
+}
+
+/* List reset */
+.list_reset li
+{
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* List inline */
+.list_inline
+{
+	overflow: hidden;
+}
+
+	.list_inline li
+	{
+		display: block;
+		float: left;
+		margin-right: 10px;
+	}
+
+/* List blocks */
+.list_blocks
+{
+	height: 326px;
+}
+
+	.list_blocks li
+	{
+		display: list-item;
+		float: none;
+		margin: 0 21px 17px 0;
+	}
+
+.no-js .list_blocks li
+{
+	float: left;
+}
+
+.list_blocks li a
+{
+	display: block;
+	text-decoration: none;
+}
+
+	.list_blocks li a:hover, .list_blocks li a:focus
+	{
+		text-decoration: underline;
+	}
+
+	.list_blocks li a .image
+	{
+		display: block;
+		margin-bottom: 4px;
+		position: relative;
+	}
+
+.overlay
+{
+	background: url(/images/bg-overlay.png) 0 0 repeat;
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	width: 100%;
+}
+.title
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #fff;
+	display: block;
+	font-size: 1.143em; /* 16px form 14px */
+	left: 0;
+	padding: 0 5px;
+	position: absolute;
+	top: 20px;
+	text-align: center;
+	width: 100%;
+}
+
+/* ------------ Media block */
+.media
+{
+	overflow: hidden;
+	zoom: 1;
+}
+
+	.media .med_l
+	{
+		float: left;
+		margin: 0 20px 15px 0;
+	}
+
+	.media .med_r
+	{
+		float: right;
+		margin: 0 0 15px 20px;
+	}
+
+	.media .bd
+	{
+		overflow: hidden;
+		zoom: 1;
+	}
+
+/* ------------ Carousel */
+.carousel,
+.no-js .slide
+{
+	margin-bottom: 17px;
+}
+.no-js .controls
+{
+	display: none;
+}
+.controls a
+{
+	background: url(/images/icon-controls.png) 0 0 no-repeat;
+	display: block;
+	height: 20px;
+	left: 10px;
+	line-height: 0;
+	margin-top: -10px;
+	position: absolute;
+	top: 50%;
+	text-indent: -9999px;	
+	width: 20px;
+	z-index: 9999;
+}
+	.controls a.next
+	{
+		left: auto;
+		right: 10px;
+		background-position: -20px 0;
+	}
+	.controls a.next:hover
+	{
+		background-position: -20px -20px;
+	}
+	.controls a.prev:hover
+	{
+		background-position: 0 -20px;
+	}
+/* ------------ Video */
+
+/* ------------ Forms */
+
+/* ------------ Tables */
+
+/* ------------ Module */
+.mod
+{
+	position: relative;
+}
+
+/*--------------------------------------------------=> Footer */
+.footer
+{
+	background-color: #e6c8af;
+	background-image: url(/images/bg-footer.jpg);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#6f5948), to(#e6c8af));
+	background-image: -webkit-linear-gradient(top, #6f5948, #e6c8af);
+	background-image: -moz-linear-gradient(top, #6f5948, #e6c8af);
+	background-image: -ms-linear-gradient(top, #6f5948, #e6c8af);
+	background-image: -o-linear-gradient(top, #6f5948, #e6c8af);
+	bottom: 0;
+	height: 220px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+}
+
+	.footer .inner
+	{
+		padding: 20px 0 0 51px;
+	}
+
+/*--------------------------------------------------=> OOCSS */
+/* ------------ Text size */
+.feature
+{
+	font-size: 1.125em; /* 18px */
+	line-height: 1.167; /* 21px */
+	margin-bottom: 28px;
+}
+
+.tertiary
+{
+	font-size: 0.75em; /* 12px */
+	line-height: 1.167; /* 14px */
+}
+
+/* ------------ Color */
+.highlight
+{
+}
+
+.contrast
+{
+}
+
+.dark
+{
+	color: #3E2B2E;
+}
+
+.reverse
+{
+	color: #fff;
+}
+
+/* ------------ Background */
+.shaded
+{
+	background-color: #eeeae1;
+}
+
+.base
+{
+	background-color: #fff;
+}
+
+/* ------------ Borders */
+.border_b
+{
+	border-bottom: 1px solid #666;
+}
+
+.border_t
+{
+	border-top: 1px solid #666;
+}
+
+/*--------------------------------------------------=> Utility */
+hr, .hr
+{
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin-bottom: 7px;
+	font-size: 0;
+	line-height: 0;
+	border: none;
+	border-bottom: 1px solid #3E2B2E;
+}
+
+/* ------------ Margin */
+.margin_0
+{
+	margin: 0 !important;
+}
+
+.margin_t_0
+{
+	margin-top: 0 !important;
+}
+
+.margin_r_0
+{
+	margin-right: 0 !important;
+}
+
+.margin_b_0
+{
+	margin-bottom: 0 !important;
+}
+
+.margin_l_0
+{
+	margin-left: 0 !important;
+}
+
+/* ------------ Padding */
+.padding_0
+{
+	padding: 0 !important;
+}
+
+.padding_t_0
+{
+	padding-top: 0 !important;
+}
+
+.padding_r_0
+{
+	padding-right: 0 !important;
+}
+
+.padding_b_0
+{
+	padding-bottom: 0 !important;
+}
+
+.padding_l_0
+{
+	padding-left: 0 !important;
+}
+
+/* ------------ Border */
+.border_0
+{
+	border: 0 !important;
+}
+
+.border_t_0
+{
+	border-top: 0 !important;
+}
+
+.border_r_0
+{
+	border-right: 0 !important;
+}
+
+.border_b_0
+{
+	border-bottom: 0 !important;
+}
+
+.border_l_0
+{
+	border-left: 0 !important;
+}
+
+/* ------------ Floats */
+.left
+{
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+
+/* ------------ Text alignment */
+.text_l
+{
+	text-align: left;
+}
+
+.text_r
+{
+	text-align: right;
+}
+
+.text_c
+{
+	text-align: center;
+}
+
+/* ------------ Text case */
+.upper
+{
+	text-transform: uppercase;
+}
+
+.lower
+{
+	text-transform: lowercase;
+}
+
+/* ------------ Typography */
+.strong
+{
+	font-weight: bold;
+}
+
+.normal
+{
+	font-weight: normal;
+}
+
+.italic
+{
+	font-style: italic;
+}
+
+/* ------------ Clear */
+.clearer
+{
+	clear: both;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.spacer
+{
+	clear: both;
+	font-size: 0;
+	height: 20px;
+	line-height: 0;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+/* ------------ Misc */
+.block
+{
+	display: block;
+}
+
+.hidden
+{
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+.no_display
+{
+	display: none !important;
+	visibility: hidden;
+}
+
+/* ------------ Debug/Prototype */
+.debug
+{
+	color: red;
+}
+
+.debug_border
+{
+	border: 1px solid red;
+}
+
+/*--------------------------------------------------=> Print */
+/*
+The print style sheet. Look to provide a simple printout of the content,
+keeping images etc in tact but removing things like navigation, footers and 
+page elements that are not considered relevant to the page content. 
+*/
+@media print
+{
+}
