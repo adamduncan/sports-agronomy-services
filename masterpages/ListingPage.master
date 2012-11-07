@@ -1,0 +1,8 @@
+﻿<%@ master language="C#" masterpagefile="~/masterpages/Master.master" autoeventwireup="true" %>
+<asp:content contentplaceholderid="MasterContentHolder" runat="server">
+	<div id="page_content" class="main_content landing">
+		<h1>
+			<umbraco:item field="alternativeTitle" useifempty="pageName" runat="server" />
+		</h1>
+	</div>
+</asp:content>

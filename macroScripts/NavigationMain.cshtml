@@ -1,0 +1,17 @@
+@*
+Build main nav
+Build: Adam Duncan 2012
+*@
+		  
+@{
+	var siteRootNode = Model.AncestorOrSelf();
+}
+<ul id="page_nav" class="nav_pri">
+	@foreach (var item in siteRootNode.Children.Where("visible"))
+	 {
+		 var currentPage = Array.IndexOf(Model.Path.Split(','), item.Id.ToString()) >= 0;
+		 var selected = currentPage ? " current" : "";
+	 
+		<li><a href="@item.IsFirst("/", item.Url)" class="@Html.Raw(selected)">@item.Name</a></li>
+	 }
+</ul>

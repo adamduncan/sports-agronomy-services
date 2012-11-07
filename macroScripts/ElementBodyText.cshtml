@@ -1,0 +1,15 @@
+@*
+Insert Page title or alternative title 
+Build: Adam Duncan 2012
+*@
+
+@{
+	if (String.IsNullOrEmpty(@Model.introText.ToString()) == false)
+	{
+	<p class="dark">
+		@Model.introText.ToString()
+	</p>
+	};
+	
+	@Model.bodyText
+}

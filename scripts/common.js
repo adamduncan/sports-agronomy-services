@@ -63,7 +63,7 @@ var Columns = {
 				});
 				$(Columns.selector + ', ' + Columns.container).css('width', contentWidth + 'px');
 				// Show content once container sized
-				$(Columns.container).animate({ opacity: 1 }, 300);
+				$(Columns.container).delay(300).animate({ opacity: 1 }, 300);
 
 			});
 		} else {
@@ -83,7 +83,6 @@ var Columns = {
 				contentWidth += $(this).outerWidth(true);
 			});
 			$(Columns.container).css('width', contentWidth + 'px').animate({ opacity: 1 }, 300);
-
 		};
 
 	},

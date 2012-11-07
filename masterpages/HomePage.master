@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
 
-<asp:Content id="Content1" ContentPlaceHolderID="MasterContentHolder" runat="server">
+<asp:content ContentPlaceHolderId="MasterContentHolder" runat="server">
 	Test
-</asp:Content>
+</asp:content>

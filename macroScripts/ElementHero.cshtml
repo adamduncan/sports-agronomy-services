@@ -1,0 +1,29 @@
+@*
+Build page hero (video, image or image carousel)
+Build: Adam Duncan 2012
+*@
+
+@{
+	if (@Model.HasProperty("videoUrl") && @Model.GetProperty("videoUrl").Value != String.Empty)
+	{
+	<div class="grid_6">
+		<p>video</p>
+	</div>
+	}
+	else if (@Model.HasProperty("pageImages") && @Model.GetProperty("pageImages").Value != String.Empty)
+	{
+	<div class="grid_5">
+		<div class="carousel">
+			@foreach (var nodeId in Model.GetProperty("pageImages").Value.Split(','))
+			   {   
+				<div class="slide">
+					<img src="http://www.placehold.it/374x257" width="374" height="257" />
+				</div>
+				}
+		</div>
+		<div class="controls">
+			<a href="#" class="prev">Prev</a><a href="#" class="next">Next</a>
+		</div>
+	</div>
+	}
+}

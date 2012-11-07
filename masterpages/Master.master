@@ -32,17 +32,7 @@
 	<div class="footer">
 		<div class="inner">
 			<div class="nav_container">
-				<ul id="page_nav" class="nav_pri">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About us</a></li>
-					<li><a href="#">Our services</a></li>
-					<li><a href="#">Our people</a></li>
-					<li><a href="#">Our associations</a></li>
-					<li><a href="#" class="current">News</a></li>
-					<li><a href="#">Case studies</a></li>
-					<li><a href="#">Technical articles</a></li>
-					<li><a href="#">Contact us</a></li>
-				</ul>
+				<umbraco:Macro Alias="NavigationMain" runat="server" />
 			</div>
 			<div class="grid_3">
 				<h3 class="dark">Contact us</h3>
@@ -51,8 +41,8 @@
 					class="dark">charles.henderson@<br />
 					sportsagronomyservices.com</a>
 					<br />
-					/<br />
-					Mobile: +44 (0) 7446161006<br />
+					/<br />
+					Mobile: +44 (0) 7446161006<br />
 					Office: +44 (0) 2086380878<br />
 					/<br />
 					<a href="#" class="dark">Full contact details</a></p>
