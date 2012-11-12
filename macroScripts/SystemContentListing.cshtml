@@ -1,0 +1,35 @@
+@*
+System to list content child nodes
+Build: Adam Duncan 2012
+*@
+@using SportsAgronomyServices.Extensions;
+<div class="left">
+	<ul class="list_blocks list_reset col_layout">
+		@foreach (var item in Model.Descendants().Where("visible && level>2"))
+  {
+	  if (item.NodeTypeAlias == "ServicePage")
+	  {
+			<li class="grid_2"><a href="@item.Url">
+				<span class="image">@RazorHelpers.WriteImage(item.GetProperty("pageImages").Value.Split(',')[0], "", 137, 94)
+							<span class="overlay">
+								<!--overlay-->
+							</span>
+							<span class="title vc">@item.Name</span>
+						</span>
+						<span class="dark">@item.serviceStrapline</span>
+			</a></li>
+	  }
+	  else
+	  {
+			<li class="grid_2"><a href="@item.Url">
+				<span class="image">@RazorHelpers.WriteImage(item.GetProperty("pageImages").Value.Split(',')[0], "", 137, 94)
+				</span>
+				@{
+		  var itemName = (!String.IsNullOrEmpty(item.alternativeTitle)) ? @item.alternativeTitle : @item.Name; 
+				}
+				@RazorHelpers.Truncate(itemName, 50)
+			</a></li>
+	  }
+  }
+	</ul>
+</div>

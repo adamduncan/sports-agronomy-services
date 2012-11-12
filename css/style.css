@@ -491,6 +491,9 @@ a
 .list_blocks li a
 {
 	display: block;
+	min-height: 146px;
+	height: auto !important;
+	height: 146px;
 	text-decoration: none;
 }
 

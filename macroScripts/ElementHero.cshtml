@@ -2,10 +2,10 @@
 Build page hero (video, image or image carousel)
 Build: Adam Duncan 2012
 *@
-
 @using SportsAgronomyServices.Extensions;
-
 @{
+	string[] images = Model.GetProperty("pageImages").Value.Split(',');
+
 	if (@Model.HasProperty("videoUrl") && @Model.GetProperty("videoUrl").Value != String.Empty)
 	{
 	<div class="grid_6">
@@ -15,17 +15,26 @@ Build: Adam Duncan 2012
 	else if (@Model.HasProperty("pageImages") && @Model.GetProperty("pageImages").Value != String.Empty)
 	{
 	<div class="grid_5">
-		<div class="carousel">
-			@foreach (var nodeId in Model.GetProperty("pageImages").Value.Split(','))
-   {
-				<div class="slide">	
-					@RazorHelpers.WriteImage(nodeId, "", 374, 257)
-				</div>
-   }
-		</div>
-		<div class="controls">
-			<a href="#" class="prev">Prev</a><a href="#" class="next">Next</a>
-		</div>
+		@if (images.Count() > 1)
+  {
+			<div class="carousel">
+				@foreach (var nodeId in images)
+	{
+					<div class="slide">
+						@RazorHelpers.WriteImage(nodeId, "", 374, 257)
+					</div>
+	}
+			</div>
+			<div class="controls">
+				<a href="#" class="prev">Prev</a><a href="#" class="next">Next</a>
+			</div>
+  }
+  else
+  {
+			<p>
+				@RazorHelpers.WriteImage(Model.GetProperty("pageImages").Value, "", 374, 257)
+			</p>
+  }
 	</div>
 	}
 	
