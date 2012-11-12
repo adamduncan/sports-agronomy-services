@@ -3,6 +3,8 @@ Build page hero (video, image or image carousel)
 Build: Adam Duncan 2012
 *@
 
+@using SportsAgronomyServices.Extensions;
+
 @{
 	if (@Model.HasProperty("videoUrl") && @Model.GetProperty("videoUrl").Value != String.Empty)
 	{
@@ -15,15 +17,16 @@ Build: Adam Duncan 2012
 	<div class="grid_5">
 		<div class="carousel">
 			@foreach (var nodeId in Model.GetProperty("pageImages").Value.Split(','))
-			   {   
-				<div class="slide">
-					<img src="http://www.placehold.it/374x257" width="374" height="257" />
+   {
+				<div class="slide">	
+					@RazorHelpers.WriteImage(nodeId, "", 374, 257)
 				</div>
-				}
+   }
 		</div>
 		<div class="controls">
 			<a href="#" class="prev">Prev</a><a href="#" class="next">Next</a>
 		</div>
 	</div>
 	}
+	
 }

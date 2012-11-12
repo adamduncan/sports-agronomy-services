@@ -153,7 +153,7 @@ var Plugins = {
 
 			$(Plugins.carouselSelector).cycle({
 				fx: 'scrollHorz',
-				timeout: 6000,
+				timeout: 0,
 				speed: 600,
 				easing: 'easeInOutQuad',
 				slideExpr: '.slide',
