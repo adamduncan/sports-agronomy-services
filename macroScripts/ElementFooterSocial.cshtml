@@ -1,0 +1,36 @@
+﻿@*
+Insert Social links from the site root properties 
+Build: Adam Duncan 2012
+*@
+@{
+	var siteSettings = @Model.AncestorOrSelf("Root");
+}
+<h3 class="dark">Social</h3>
+<hr />
+<ul class="list_reset list_inline list_social">
+@if (!String.IsNullOrEmpty(siteSettings.twitterUsername))
+{
+	var twitterUrl = "http://www.twitter.com/";
+	<li>
+	<a href="@twitterUrl@siteSettings.twitterUsername" class="block ext" title="Sports Agronomy Services on Twitter"><img
+							src="/images/social-twitter.png" width="87" height="52" alt="Twitter" /></a>	</li>
+}
+@if (!String.IsNullOrEmpty(siteSettings.facebookUrl))
+{
+	<li>
+	<a href="@siteSettings.facebookUrl" class="block ext" title="Sports Agronomy Services on Facebook"><img
+							src="/images/social-facebook.png" width="92" height="52" alt="Facebook" /></a>	</li>
+}
+@if (!String.IsNullOrEmpty(siteSettings.googlePlusUrl))
+{
+	<li>
+	<a href="@siteSettings.googlePlusUrl" class="block ext" title="Sports Agronomy Services on Google+"><img
+							src="/images/social-gplus.png" width="77" height="52" alt="Google+" /></a>	</li>
+}
+@if (!String.IsNullOrEmpty(siteSettings.linkedInUrl))
+{
+	<li class="margin_r_0">
+	<a href="@siteSettings.linkedInUrl" class="block ext" title="Sports Agronomy Services on LinkedIn"><img
+							src="/images/social-linkedin.png" width="81" height="52" alt="LinkedIn" /></a>	</li>
+}
+</ul>

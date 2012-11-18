@@ -9,7 +9,12 @@ Build: Adam Duncan 2012
 	if (@Model.HasProperty("videoUrl") && @Model.GetProperty("videoUrl").Value != String.Empty)
 	{
 	<div class="grid_6">
-		<p>video</p>
+		@{
+		var embedUrl = "http://player.vimeo.com/video/";
+		var videoId = Model.GetProperty("videoUrl").Value.Split("/".ToCharArray())[3];
+		}
+		<iframe src="@embedUrl@videoId" width="453" height="257" frameborder="0"
+					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
 	}
 	else if (@Model.HasProperty("pageImages") && @Model.GetProperty("pageImages").Value != String.Empty)

@@ -5,21 +5,24 @@ Build: Adam Duncan 2012
 @using SportsAgronomyServices.Extensions;
 <div class="left">
 	<ul class="list_blocks list_reset col_layout">
-		@foreach (var item in Model.Descendants().Where("visible && level>2"))
+		@if (Model.NodeTypeAlias == "ServiceListingPage")
   {
-	  if (item.NodeTypeAlias == "ServicePage")
+	  foreach (var item in Model.Descendants().Where("visible && level>2"))
 	  {
 			<li class="grid_2"><a href="@item.Url">
 				<span class="image">@RazorHelpers.WriteImage(item.GetProperty("pageImages").Value.Split(',')[0], "", 137, 94)
-							<span class="overlay">
-								<!--overlay-->
-							</span>
-							<span class="title vc">@item.Name</span>
-						</span>
-						<span class="dark">@item.serviceStrapline</span>
+					<span class="overlay">
+						<!--overlay-->
+					</span>
+					<span class="title vc">@item.Name</span>
+				</span>
+				<span class="dark">@item.serviceStrapline</span>
 			</a></li>
 	  }
-	  else
+  }
+  else
+  {
+	  foreach (var item in Model.Descendants().Where("visible && level>2").OrderBy("articleDate desc"))
 	  {
 			<li class="grid_2"><a href="@item.Url">
 				<span class="image">@RazorHelpers.WriteImage(item.GetProperty("pageImages").Value.Split(',')[0], "", 137, 94)
@@ -27,7 +30,7 @@ Build: Adam Duncan 2012
 				@{
 		  var itemName = (!String.IsNullOrEmpty(item.alternativeTitle)) ? @item.alternativeTitle : @item.Name; 
 				}
-				@RazorHelpers.Truncate(itemName, 50)
+				@RazorHelpers.Truncate(itemName, 45)
 			</a></li>
 	  }
   }

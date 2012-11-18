@@ -1,5 +1,13 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/Master.master" AutoEventWireup="true" %>
-
-<asp:content ContentPlaceHolderId="MasterContentHolder" runat="server">
-	Test
+﻿<%@ master language="C#" masterpagefile="~/masterpages/Master.master" autoeventwireup="true" %>
+<asp:content contentplaceholderid="MasterContentHolder" runat="server">
+	<div id="page_content" class="main_content landing">
+		<h1 class="hidden">
+			<umbraco:item field="alternativeTitle" useifempty="pageName" runat="server" />
+		</h1>
+		<div class="grid_5">
+			<umbraco:item field="introText" runat="server" />
+		</div>
+		<umbraco:macro alias="ElementHero" runat="server" />
+		<umbraco:macro alias="ElementModulesHomepage" runat="server" />
+	</div>
 </asp:content>

@@ -1,0 +1,18 @@
+@*
+Insert Affiliations logos from the Affiliates repository 
+Build: Adam Duncan 2012
+*@
+@using SportsAgronomyServices.Extensions;
+@{
+	var affiliationsNode = Model.NodeById(Constants.affiliationsRootId);
+}
+<h3 class="dark">Affiliations</h3>
+<hr />
+<ul class="list_reset list_inline">
+	@foreach (var item in affiliationsNode.Children.Where("visible"))
+ {
+		<li>
+			@RazorHelpers.WriteImage(item.GetProperty("affiliationLogo").Value, "")
+		</li>
+ }
+</ul>

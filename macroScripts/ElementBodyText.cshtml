@@ -2,8 +2,14 @@
 Insert Page title or alternative title 
 Build: Adam Duncan 2012
 *@
-
 @{
+	if (Model.NodeTypeAlias == "ArticlePage")
+	{
+	<p class="dark">
+		@Model.articleDate.ToString("dd MMMM yyyy")
+	</p>
+	};
+
 	if (String.IsNullOrEmpty(@Model.introText.ToString()) == false)
 	{
 	<p class="dark">
@@ -12,4 +18,9 @@ Build: Adam Duncan 2012
 	};
 	
 	@Model.bodyText
+
+	if(Model.NodeTypeAlias == "ArticlePage") {
+		<p><a href="@Model.AncestorOrSelf("ArticleListingPage").Url" class="dark">Back to @Model.AncestorOrSelf("ArticleListingPage").Name</a></p>	
+	}
+
 }
