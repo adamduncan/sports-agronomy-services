@@ -14,7 +14,7 @@
 	<title>Sports Agronomy Services / <umbraco:Item field="pageName" useIfEmpty="alternativeTitle" runat="server" /></title>
 	<meta name="description" content="<umbraco:Item field='metaDescription' recursive='true' runat='server'></umbraco:Item>">
 	<meta name="keywords" content="<umbraco:Item field='metaKeywords' recursive='true' runat='server'></umbraco:Item>">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=1024">
 	<link type="text/css" rel="stylesheet" href="http://fast.fonts.com/cssapi/63b1db08-d227-43e8-80bc-57b9569a9ccd.css">
 	<link href="/css/style.css" rel="stylesheet">
 </head>
@@ -35,17 +35,7 @@
 				<umbraco:Macro Alias="NavigationMain" runat="server" />
 			</div>
 			<div class="grid_3">
-				<h3 class="dark">Contact us</h3>
-				<hr />
-				<%--<p class="dark tertiary margin_b_0"><a href="mailto:charles.henderson@sportsagronomyservices.com"
-					class="dark">charles.henderson@<br />
-					sportsagronomyservices.com</a>
-					<br />
-					/<br />
-					Mobile: +44 (0) 7446161006<br />
-					Office: +44 (0) 2086380878<br />
-					/<br />
-					<a href="#" class="dark">Full contact details</a></p>--%>
+				<umbraco:Macro Alias="ElementFooterContact" runat="server" />
 			</div>
 			<div class="grid_4">
 				<umbraco:Macro Alias="ElementFooterAffiliations" runat="server" />

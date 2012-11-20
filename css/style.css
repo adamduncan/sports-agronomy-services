@@ -136,22 +136,14 @@ h2, .h2
 	color: #3E2B2E;
 	font-size: 0.875em; /* 14px */
 	line-height: 1.214; /* 17px */
+	margin-bottom: 10px;
 }
 
 h3, .h3
 {
-}
-
-h4, .h4
-{
-}
-
-h5, .h5
-{
-}
-
-h6, .h6
-{
+	color: #3E2B2E;
+	font-size: 0.875em; /* 14px */
+	line-height: 1.214; /* 17px */
 }
 
 /* ------------ Paragraph */
@@ -172,6 +164,22 @@ a
 	a:hover, a:focus
 	{
 		color: #3E2B2E;
+	}
+
+	a.button
+	{
+		display: inline-block;
+		padding-left: 20px;
+		text-decoration: none;
+	}
+	a.button:hover
+	{
+		background-position: 0 -100px;
+		text-decoration: underline;
+	}
+	a.icon_back
+	{
+		background: url(/images/icon-back.png) 0 0 no-repeat;
 	}
 
 /* ------------ List */
@@ -631,6 +639,7 @@ a
 	.footer .inner
 	{
 		padding: 20px 0 0 51px;
+		min-width: 927px;
 	}
 
 /*--------------------------------------------------=> OOCSS */

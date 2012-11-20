@@ -7,6 +7,8 @@ Date: October 2012
 
 $('html').removeClass('no-js');
 $('html').addClass('js');
+$('.main_content').animate({ opacity: 0 }, 1);
+
 
 var AppSettings = {
 	DEBUGMODE: true,

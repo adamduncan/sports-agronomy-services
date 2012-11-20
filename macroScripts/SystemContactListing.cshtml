@@ -1,0 +1,65 @@
+@*
+List contact details
+Build: Adam Duncan 2012
+*@
+@{
+	var mailToAddress = "mailto:";
+	<div class="grid_4">
+		@if (!String.IsNullOrEmpty(@Model.contactPersonDetails))
+  {
+			<p class="dark margin_b_0">
+				@Html.Raw(@Model.contactPersonDetails.ToString())
+			</p>
+			@Html.Raw("/<br />")
+  }
+		@if (!String.IsNullOrEmpty(@Model.contactAddressLine1) || !String.IsNullOrEmpty(@Model.contactAddressLine2) || !String.IsNullOrEmpty(@Model.contactCityPostcode))
+  {
+			<p>
+				@if (!String.IsNullOrEmpty(@Model.contactAddressLine1))
+	{
+					@Html.Raw(@Model.contactAddressLine1.ToString())
+					@Html.Raw("<br />")
+	}
+				@if (!String.IsNullOrEmpty(@Model.contactAddressLine2))
+	{
+					@Html.Raw(@Model.contactAddressLine2.ToString())
+					@Html.Raw("<br />")
+	}
+				@if (!String.IsNullOrEmpty(@Model.contactCityPostcode))
+	{
+					@Html.Raw(@Model.contactCityPostcode.ToString())
+	}
+			</p>
+  }
+	</div>
+	<div class="grid_4">
+		@if (!String.IsNullOrEmpty(@Model.contactEmail) || !String.IsNullOrEmpty(@Model.contactMobileNumber) || !String.IsNullOrEmpty(@Model.contactOfficeNumber) || !String.IsNullOrEmpty(@Model.contactSkype))
+  {
+			<p>
+				@if (!String.IsNullOrEmpty(@Model.contactEmail))
+	{
+					<a href="@mailToAddress@Model.contactEmail" class="dark">
+						@Model.contactEmail.Split('@')[0]@Html.Raw("@")<br />
+						@Model.contactEmail.Split('@')[1]
+					</a>
+					@Html.Raw("<br />/")
+	}
+				@if (!String.IsNullOrEmpty(@Model.contactMobileNumber))
+	{
+					@Html.Raw("<br />Mobile: ")
+					@Model.contactMobileNumber
+	}
+				@if (!String.IsNullOrEmpty(@Model.contactOfficeNumber))
+	{
+					@Html.Raw("<br />Office: ")
+					@Model.contactOfficeNumber
+	}
+				@if (!String.IsNullOrEmpty(@Model.contactSkype))
+	{
+					@Html.Raw("<br />Skype: ")
+					@Model.contactSkype
+	}
+			</p>
+  }
+	</div>
+}

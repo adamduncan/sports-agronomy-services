@@ -4,9 +4,6 @@
 		<h1>
 			<umbraco:item field="alternativeTitle" useifempty="pageName" runat="server" />
 		</h1>
-		<umbraco:macro alias="ElementHero" runat="server" />
-		<div class="columns">
-			<umbraco:macro alias="ElementBodyText" runat="server" />
-		</div>
+		<umbraco:macro alias="SystemContactListing" runat="server" />
 	</div>
 </asp:content>

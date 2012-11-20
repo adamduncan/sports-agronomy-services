@@ -10,7 +10,7 @@ Build: Adam Duncan 2012
 	</p>
 	};
 
-	if (String.IsNullOrEmpty(@Model.introText.ToString()) == false)
+	if (!String.IsNullOrEmpty(@Model.introText.ToString()))
 	{
 	<p class="dark">
 		@Model.introText.ToString()
@@ -19,8 +19,13 @@ Build: Adam Duncan 2012
 	
 	@Model.bodyText
 
+
+	// Add Back to link for Article or Service pages
 	if(Model.NodeTypeAlias == "ArticlePage") {
-		<p><a href="@Model.AncestorOrSelf("ArticleListingPage").Url" class="dark">Back to @Model.AncestorOrSelf("ArticleListingPage").Name</a></p>	
+		<p><a href="@Model.AncestorOrSelf("ArticleListingPage").Url" class="dark button icon_back">Back to @Model.AncestorOrSelf("ArticleListingPage").Name</a></p>	
+	}
+	if(Model.NodeTypeAlias == "ServicePage") {
+		<p><a href="@Model.AncestorOrSelf("ServiceListingPage").Url" class="dark button icon_back">Back to @Model.AncestorOrSelf("ServiceListingPage").Name</a></p>	
 	}
 
 }

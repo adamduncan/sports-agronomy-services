@@ -1,0 +1,32 @@
+@*
+Insert Contact details from Contact page node
+Build: Adam Duncan 2012
+*@
+@using SportsAgronomyServices.Extensions;
+@{
+	var contactNode = Model.NodeById(Constants.contactId);
+	var mailToAddress = "mailto:";
+}
+<h3 class="dark">Contact us</h3>
+<hr />
+<p class="dark tertiary margin_b_0">
+	@if (!String.IsNullOrEmpty(contactNode.contactEmail))
+ {
+		<a href="@mailToAddress@contactNode.contactEmail" class="dark">
+			@contactNode.contactEmail.Split('@')[0]@Html.Raw("@")<br />
+			@contactNode.contactEmail.Split('@')[1]
+		</a>
+		@Html.Raw("<br />/")
+ }
+	@if (!String.IsNullOrEmpty(contactNode.contactMobileNumber))
+ {
+		@Html.Raw("<br />Mobile: ")
+		@contactNode.contactMobileNumber
+ }
+	@if (!String.IsNullOrEmpty(contactNode.contactOfficeNumber))
+ {
+		@Html.Raw("<br />Office: ")
+		@contactNode.contactOfficeNumber
+ }
+	@Html.Raw("<br />/<br />")
+	<a href="@contactNode.Url" class="dark">Full contact details </a></p>
