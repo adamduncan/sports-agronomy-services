@@ -266,8 +266,9 @@ select, input, textarea
 }
 
 /* ------------ Blockquote */
-blockquote
+.blockquote
 {
+	font-family: 'UniversLTW01-45LightObl', Arial, Helvetica, sans-serif;
 }
 
 /*--------------------------------------------------=> Grid */
