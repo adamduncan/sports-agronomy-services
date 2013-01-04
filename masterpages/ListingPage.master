@@ -4,6 +4,9 @@
 		<h1>
 			<umbraco:item field="alternativeTitle" useifempty="pageName" runat="server" />
 		</h1>
+		<div class="grid_5">
+			<umbraco:item field="introText" runat="server" />
+		</div>
 		<umbraco:macro alias="SystemContentListing" runat="server" />
 	</div>
 </asp:content>

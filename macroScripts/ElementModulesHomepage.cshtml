@@ -1,17 +1,11 @@
-@*
+﻿@*
 System to list homepage service nodes and article nodes
 Build: Adam Duncan 2012
 *@
 @using SportsAgronomyServices.Extensions;
 @{
 	var servicesNode = Model.NodeById(Constants.servicesRootId);
-	var newsNode = Model.NodeById(Constants.newsRootId);
-	var caseStudiesNode = Model.NodeById(Constants.caseStudiesRootId);
-	var techNode = Model.NodeById(Constants.techRootId);
-
-	var newsNodeSet = newsNode.Descendants().Where("visible && level>2").OrderBy("articleDate desc");
-	var caseStudiesNodeSet = caseStudiesNode.Descendants().Where("visible && level>2").OrderBy("articleDate desc");
-	var techNodeSet = techNode.Descendants().Where("visible && level>2").OrderBy("articleDate desc");
+	string[] articles = Model.GetProperty("articlesToDisplay").Value.Split(',');
 
 }
 @* Services *@
@@ -31,30 +25,57 @@ Build: Adam Duncan 2012
   }
 	</ul>
 </div>
-@* Feature news *@
-<div class="grid_5">
-	<ul class="list_blocks list_reset">
-		@foreach (var item in newsNodeSet)
-  {
-	  if (@item.Index() == 0)
-	  {
-			<li class="margin_r_0"><a href="@item.Url">
-				<span class="image">@RazorHelpers.WriteImage(item.GetProperty("pageImages").Value.Split(',')[0], "", 374, 257)
+@* Feature articles *@
+@if (@Model.GetProperty("articlesToDisplay").Value != String.Empty)
+{
+	<div class="grid_5">
+		<ul class="list_blocks list_reset">
+			  @foreach (var item in articles.Take(1))
+	 {
+		 var article = Model.NodeById(item);
+				<li class="margin_r_0">
+					<a href="@article.Url">
+						<span class="image">@RazorHelpers.WriteImage(article.GetProperty("pageImages").Value.Split(',')[0], "", 374, 257)</span>
+						@{
+		 var itemName = (!String.IsNullOrEmpty(article.alternativeTitle)) ? @article.alternativeTitle : @article.Name;
+		 var itemType = @article.AncestorOrSelf("ArticleListingPage").Name;
+						}
+						<span class="dark">
+							@itemType
+						</span>
+						@RazorHelpers.Truncate(itemName, 80)
+					</a></li>
+	 }
+		</ul>
+	</div>
+}
+@if (articles.Count() > 1)
+{
+<div class="left">
+	<ul class="list_blocks list_reset col_layout">
+@foreach (var item in articles.Skip(1))
+{
+	var article = Model.NodeById(item);
+	<li class="grid_2"><a href="@article.Url">
+				<span class="image">@RazorHelpers.WriteImage(article.GetProperty("pageImages").Value.Split(',')[0], "", 137, 94)
 				</span>
 				@{
-		  var itemName = (!String.IsNullOrEmpty(item.alternativeTitle)) ? @item.alternativeTitle : @item.Name;
-		  var itemType = @item.AncestorOrSelf("ArticleListingPage").Name;
+	var itemName = (!String.IsNullOrEmpty(article.alternativeTitle)) ? @article.alternativeTitle : @article.Name;
+	var itemType = @article.AncestorOrSelf("ArticleListingPage").Name;
 				}
 				<span class="dark">
 					@itemType
 				</span>
-				@RazorHelpers.Truncate(itemName, 80)
+				@RazorHelpers.Truncate(itemName, 40)
 			</a></li>
-	  }
-  }
+}
 	</ul>
 </div>
-@* Additional stories *@
+}
+
+
+@* 
+
 <div class="left">
 	<ul class="list_blocks list_reset col_layout">
 		@foreach (var item in newsNodeSet)
@@ -71,7 +92,7 @@ Build: Adam Duncan 2012
 				<span class="dark">
 					@itemType
 				</span>
-				@RazorHelpers.Truncate(itemName, 45)
+				@RazorHelpers.Truncate(itemName, 40)
 			</a></li>
 	  }
   }
@@ -89,7 +110,7 @@ Build: Adam Duncan 2012
 				<span class="dark">
 					@itemType
 				</span>
-				@RazorHelpers.Truncate(itemName, 45)
+				@RazorHelpers.Truncate(itemName, 40)
 			</a></li>
 	  }
   }
@@ -107,9 +128,10 @@ Build: Adam Duncan 2012
 				<span class="dark">
 					@itemType
 				</span>
-				@RazorHelpers.Truncate(itemName, 45)
+				@RazorHelpers.Truncate(itemName, 34)
 			</a></li>
 	  }
   }
 	</ul>
 </div>
+*@

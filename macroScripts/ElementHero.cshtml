@@ -3,30 +3,60 @@ Build page hero (video, image or image carousel)
 Build: Adam Duncan 2012
 *@
 @using SportsAgronomyServices.Extensions;
+@using umbraco.MacroEngines.Library
 @{
-	string[] images = Model.GetProperty("pageImages").Value.Split(',');
+	if (@Model.HasProperty("pageImages") || @Model.HasProperty("videoUrl"))
+	{
+		string[] images = Model.GetProperty("pageImages").Value.Split(',');
 
-	if (@Model.HasProperty("videoUrl") && @Model.GetProperty("videoUrl").Value != String.Empty)
-	{
+		if (@Model.HasProperty("videoUrl") && @Model.GetProperty("videoUrl").Value != String.Empty)
+		{
+			if (@Model.GetProperty("videoUrl").Value.ToString().Contains("youtu."))
+			{
+				var embedUrl = "http://www.youtube.com/embed/";
+				var videoId = Model.GetProperty("videoUrl").Value.Split("/".ToCharArray())[3].Substring(0, 11);
+				var videoParams = "?rel=0&autoplay=0&autohide=1";
 	<div class="grid_6">
-		@{
-		var embedUrl = "http://player.vimeo.com/video/";
-		var videoId = Model.GetProperty("videoUrl").Value.Split("/".ToCharArray())[3];
-		}
-		<iframe src="@embedUrl@videoId" width="453" height="257" frameborder="0"
-					webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<iframe width="453" height="257" src="@embedUrl@videoId@videoParams" frameborder="0" allowfullscreen>
+		</iframe>
 	</div>
-	}
-	else if (@Model.HasProperty("pageImages") && @Model.GetProperty("pageImages").Value != String.Empty)
-	{
+			}
+			else if (@Model.GetProperty("videoUrl").Value.ToString().Contains("youtube"))
+			{
+				var embedUrl = "http://www.youtube.com/embed/";
+				var videoId = Model.GetProperty("videoUrl").Value.Split("v=".ToCharArray())[2].Substring(0, 11);
+				var videoParams = "?rel=0&autoplay=0&autohide=1";
+	<div class="grid_6">
+		<iframe width="453" height="257" src="@embedUrl@videoId@videoParams" frameborder="0" allowfullscreen>
+		</iframe>
+	</div>
+			}
+			else if (@Model.GetProperty("videoUrl").Value.ToString().Contains("vimeo"))
+			{
+				var embedUrl = "http://player.vimeo.com/video/";
+				var videoId = Model.GetProperty("videoUrl").Value.Split("/".ToCharArray())[3];
+				var videoParams = "?color=E6C8AF&title=0&byline=0&portrait=0";
+	<div class="grid_6">
+		<iframe src="@embedUrl@videoId@videoParams" width="453" height="257" frameborder="0"
+							webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+			}
+		}
+		else if (@Model.HasProperty("pageImages") && @Model.GetProperty("pageImages").Value != String.Empty)
+		{
 	<div class="grid_5">
 		@if (images.Count() > 1)
   {
 			<div class="carousel">
 				@foreach (var nodeId in images)
 	{
+		var mediaItem = new RazorLibraryCore(null).MediaById(Convert.ToInt32(nodeId));
 					<div class="slide">
 						@RazorHelpers.WriteImage(nodeId, "", 374, 257)
+						@if (@mediaItem.altText.ToString() != "umbraco.MacroEngines.DynamicXml")
+	  {
+						<p class="caption">@mediaItem.altText.ToString()</p>
+						}
 					</div>
 	}
 			</div>
@@ -36,11 +66,17 @@ Build: Adam Duncan 2012
   }
   else
   {
-			<p>
+	  var mediaItem = new RazorLibraryCore(null).MediaById(Convert.ToInt32(Model.GetProperty("pageImages").Value));
+			<p class="margin_b_0">
 				@RazorHelpers.WriteImage(Model.GetProperty("pageImages").Value, "", 374, 257)
 			</p>
+						if (@mediaItem.altText.ToString() != "umbraco.MacroEngines.DynamicXml")
+	  {
+						<p class="caption">@mediaItem.altText.ToString()</p>
+						}
   }
 	</div>
+		}
+
 	}
-	
 }

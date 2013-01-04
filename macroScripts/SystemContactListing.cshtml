@@ -62,4 +62,60 @@ Build: Adam Duncan 2012
 			</p>
   }
 	</div>
+	foreach (var item in Model.Descendants().Where("visible"))
+	  {
+	  var contactName = (!String.IsNullOrEmpty(@item.alternativeTitle)) ? @item.alternativeTitle : @item.Name;
+	<div class="grid_4">
+			<h2 class="dark strong">
+				@contactName
+			</h2>
+		@if (!String.IsNullOrEmpty(item.contactAddressLine1) || !String.IsNullOrEmpty(item.contactAddressLine2) || !String.IsNullOrEmpty(item.contactCityPostcode))
+  {
+			<p>
+				@if (!String.IsNullOrEmpty(item.contactAddressLine1))
+	{
+					@Html.Raw(item.contactAddressLine1.ToString())
+					@Html.Raw("<br />")
+	}
+				@if (!String.IsNullOrEmpty(item.contactAddressLine2))
+	{
+					@Html.Raw(item.contactAddressLine2.ToString())
+					@Html.Raw("<br />")
+	}
+				@if (!String.IsNullOrEmpty(item.contactCityPostcode))
+	{
+					@Html.Raw(item.contactCityPostcode.ToString())
+	}
+			</p>
+  }
+  		@if (!String.IsNullOrEmpty(item.contactEmail) || !String.IsNullOrEmpty(item.contactMobileNumber) || !String.IsNullOrEmpty(item.contactOfficeNumber) || !String.IsNullOrEmpty(item.contactSkype))
+  {
+			<p>
+				@if (!String.IsNullOrEmpty(item.contactEmail))
+	{
+					<a href="@mailToAddress@item.contactEmail" class="dark">
+						@item.contactEmail.Split('@')[0]@Html.Raw("@")<br />
+						@item.contactEmail.Split('@')[1]
+					</a>
+					@Html.Raw("<br />/")
+	}
+				@if (!String.IsNullOrEmpty(item.contactMobileNumber))
+	{
+					@Html.Raw("<br />Mobile: ")
+					@item.contactMobileNumber
+	}
+				@if (!String.IsNullOrEmpty(item.contactOfficeNumber))
+	{
+					@Html.Raw("<br />Office: ")
+					@item.contactOfficeNumber
+	}
+				@if (!String.IsNullOrEmpty(item.contactSkype))
+	{
+					@Html.Raw("<br />Skype: ")
+					@item.contactSkype
+	}
+			</p>
+		}
+	</div>
+	}
 }

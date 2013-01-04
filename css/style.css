@@ -420,7 +420,7 @@ select, input, textarea
 .main_content
 {
 	overflow: hidden;
-	padding: 30px 21px 210px 51px;
+	padding: 30px 21px 190px 51px;
 }
 
 .no-js .main_content
@@ -544,6 +544,14 @@ a
 	text-align: center;
 	width: 100%;
 }
+.caption
+{
+	margin-top: 9px;
+}
+.columns .caption
+{
+	margin-top: -10px;
+}
 
 /* ------------ Media block */
 .media
@@ -587,7 +595,7 @@ a
 	height: 20px;
 	left: 10px;
 	line-height: 0;
-	margin-top: -10px;
+	margin-top: -30px;
 	position: absolute;
 	top: 50%;
 	text-indent: -9999px;	
@@ -608,6 +616,12 @@ a
 	{
 		background-position: 0 -20px;
 	}
+/* ------------ Image  */
+.columns p img
+{
+	padding-bottom: 30px;
+}
+
 /* ------------ Video */
 
 /* ------------ Forms */
@@ -631,7 +645,7 @@ a
 	background-image: -ms-linear-gradient(top, #6f5948, #e6c8af);
 	background-image: -o-linear-gradient(top, #6f5948, #e6c8af);
 	bottom: 0;
-	height: 220px;
+	height: 200px;
 	left: 0;
 	position: fixed;
 	width: 100%;
@@ -829,9 +843,10 @@ hr, .hr
 }
 
 /* ------------ Typography */
-.strong
+.strong, strong
 {
-	font-weight: bold;
+	font-family:'Univers LT W01 65 Bold';
+	font-weight: normal;
 }
 
 .normal
@@ -839,9 +854,10 @@ hr, .hr
 	font-weight: normal;
 }
 
-.italic
+.italic, em
 {
-	font-style: italic;
+	font-family:'UniversLTW01-45LightObl';
+	font-weight: normal;
 }
 
 /* ------------ Clear */

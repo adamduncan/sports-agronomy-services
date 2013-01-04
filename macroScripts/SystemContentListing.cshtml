@@ -22,7 +22,7 @@ Build: Adam Duncan 2012
   }
   else
   {
-	  foreach (var item in Model.Descendants().Where("visible && level>2").OrderBy("articleDate desc"))
+	  foreach (var item in Model.Descendants().Where("visible && level>2"))
 	  {
 			<li class="grid_2"><a href="@item.Url">
 				<span class="image">@RazorHelpers.WriteImage(item.GetProperty("pageImages").Value.Split(',')[0], "", 137, 94)

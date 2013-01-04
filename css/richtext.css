@@ -9,11 +9,15 @@ h3 {
 
 }
 
-.blockquote {
+.dark {
 
 }
 
-.dark {
+.caption {
 
+}
+
+.blockquote {
+font-style:italic;
 }
 

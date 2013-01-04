@@ -11,8 +11,8 @@ Build: Adam Duncan 2012
 <ul class="list_reset list_inline">
 	@foreach (var item in affiliationsNode.Children.Where("visible"))
  {
-		<li>
+		<li><a href="@item.Url" title="@item.Name">
 			@RazorHelpers.WriteImage(item.GetProperty("affiliationLogo").Value, "")
-		</li>
+		</a></li>
  }
 </ul>

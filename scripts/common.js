@@ -18,8 +18,6 @@ var AppSettings = {
 var Main = {
 
 	run: function () {
-		$('.main_content').animate({ opacity: 0 }, 1);
-
 		Columns.init();
 		Columns.landingCols();
 		Columns.verticalCols();
@@ -155,8 +153,8 @@ var Plugins = {
 
 			$(Plugins.carouselSelector).cycle({
 				fx: 'scrollHorz',
-				timeout: 0,
-				speed: 600,
+				timeout: 4000,
+				speed: 500,
 				easing: 'easeInOutQuad',
 				slideExpr: '.slide',
 				prev: '.prev',

@@ -1,14 +1,8 @@
-@*
+﻿@*
 Insert Page title or alternative title 
 Build: Adam Duncan 2012
 *@
 @{
-	if (Model.NodeTypeAlias == "ArticlePage")
-	{
-	<p class="dark">
-		@Model.articleDate.ToString("dd MMMM yyyy")
-	</p>
-	};
 
 	if (!String.IsNullOrEmpty(@Model.introText.ToString()))
 	{
